@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/routes/(.*)",
-      "dest": "workoutRoutes.js"
+      "dest": "router.js"
     }
   ]
 }

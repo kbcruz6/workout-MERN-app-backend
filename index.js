@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
-import workoutRouter from "./routes/workoutRoutes.js";
+import router from "./routes/router.js";
 
 //! Create a express app
 const app = express();
@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 //! Routes
-app.use("/api/workouts", workoutRouter);
+app.use("/api/workouts", router);
 
 //! Connect to DB
 const mongoUri = `mongodb+srv://agustintcruz:${process.env.PASS}@redesplus.icmht48.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`;
