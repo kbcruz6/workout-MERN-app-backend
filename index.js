@@ -1,17 +1,17 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 dotenv.config();
-import mongoose from "mongoose";
-// import router from "./routes/router.js";
+const mongoose = require("mongoose");
+// const router =require() "./routes/router.js";
 
-import {
+const {
   createWorkout,
   getWorkouts,
   getWorkout,
   deleteWorkout,
   updateWorkout,
-} from "./controllers/workoutController.js";
+} = require("./controllers/workoutController.js");
 
 //! Create a express app
 const app = express();
@@ -62,4 +62,4 @@ mongoose
     console.log(error);
   });
 
-export default app;
+module.exports = app;

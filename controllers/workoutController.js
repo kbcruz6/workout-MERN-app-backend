@@ -1,6 +1,6 @@
-import Workout from "../models/workoutModel.js";
-import mongoose, { isValidObjectId } from "mongoose";
-
+const Workout = require("../models/workoutModel.js");
+const mongoose = require("mongoose");
+const { isValidObjectId } = require("mongoose");
 mongoose.set("strictQuery", false);
 
 //! GET all workouts
@@ -92,4 +92,10 @@ const updateWorkout = async (req, res) => {
   res.status(200).json({ updated: workout });
 };
 
-export { createWorkout, getWorkouts, getWorkout, deleteWorkout, updateWorkout };
+module.exports = {
+  createWorkout,
+  getWorkouts,
+  getWorkout,
+  deleteWorkout,
+  updateWorkout,
+};

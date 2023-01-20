@@ -1,5 +1,5 @@
-import mongoose, { Schema, model } from "mongoose";
-
+const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const workoutSchema = new Schema(
   {
     title: {
@@ -21,4 +21,4 @@ const workoutSchema = new Schema(
 
 const Workout = model("Workout", workoutSchema);
 
-export default Workout;
+module.exports = Workout;
