@@ -5,14 +5,6 @@ dotenv.config();
 const mongoose = require("mongoose");
 const router = require("./routes/router.js");
 
-// const {
-//   createWorkout,
-//   getWorkouts,
-//   getWorkout,
-//   deleteWorkout,
-//   updateWorkout,
-// } = require("./controllers/workoutController.js");
-
 //! Create a express app
 const app = express();
 
@@ -27,21 +19,6 @@ app.use((req, res, next) => {
 
 //! Routes
 app.use("/api/workouts", router);
-
-// //! GET all workouts
-// app.get("/api/workouts", getWorkouts);
-
-// //! GET a single workout
-// app.get("/api/workouts/:id", getWorkout);
-
-// //! POST a new workout
-// app.post("/api/workouts", createWorkout);
-
-// //! DELETE a workout
-// app.delete("/api/workouts/:id", deleteWorkout);
-
-// //! UPDATE a workout
-// app.patch("/api/workouts/:id", updateWorkout);
 
 //! Connect to DB
 const mongoUri = `mongodb+srv://agustintcruz:${process.env.PASS}@redesplus.icmht48.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`;
@@ -61,3 +38,19 @@ mongoose
   });
 
 module.exports = app;
+
+//! IF I DONT USE THE FOLDER ROUTES:
+// //! GET all workouts
+// app.get("/api/workouts", getWorkouts);
+
+// //! GET a single workout
+// app.get("/api/workouts/:id", getWorkout);
+
+// //! POST a new workout
+// app.post("/api/workouts", createWorkout);
+
+// //! DELETE a workout
+// app.delete("/api/workouts/:id", deleteWorkout);
+
+// //! UPDATE a workout
+// app.patch("/api/workouts/:id", updateWorkout);
