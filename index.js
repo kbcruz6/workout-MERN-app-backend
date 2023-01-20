@@ -3,7 +3,15 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 import mongoose from "mongoose";
-import router from "./routes/router.js";
+// import router from "./routes/router.js";
+
+import {
+  createWorkout,
+  getWorkouts,
+  getWorkout,
+  deleteWorkout,
+  updateWorkout,
+} from "./controllers/workoutController.js";
 
 //! Create a express app
 const app = express();
@@ -18,7 +26,24 @@ app.use((req, res, next) => {
 });
 
 //! Routes
-app.use("/api/workouts", router);
+// app.use("/api/workouts", router);
+
+// const router = express.Router();
+
+//! GET all workouts
+app.get("/api/workouts", getWorkouts);
+
+//! GET a single workout
+app.get("/api/workouts/:id", getWorkout);
+
+//! POST a new workout
+app.post("/api/workouts", createWorkout);
+
+//! DELETE a workout
+app.delete("/api/workouts/:id", deleteWorkout);
+
+//! UPDATE a workout
+app.patch("/api/workouts/:id", updateWorkout);
 
 //! Connect to DB
 const mongoUri = `mongodb+srv://agustintcruz:${process.env.PASS}@redesplus.icmht48.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`;
